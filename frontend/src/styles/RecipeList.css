@@ -1,0 +1,93 @@
+/* General styles */
+
+*{
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    box-sizing: border-box;
+    width: 100% !important;
+    display: flex;
+    overflow-x: hidden;
+    justify-content: center;
+/*     overflow-x: hidden; */
+}
+
+.parent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+/* Heading styling */
+h1 {
+    text-align: center;
+    margin-bottom: 40px; /* Space below the heading */
+    font-size: 2.5rem;
+    color: #2d3436;
+}
+
+/* Recipe container */
+.recipe-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    gap: 1rem;
+    padding: 0;
+    align-items: start;
+}
+
+/* Recipe card styling */
+.recipe-card {
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow: hidden; /* Prevent content overflow */
+    text-decoration: none; /* Remove underline from links */
+    transition: transform 0.2s ease-in-out; /* Smooth transition */
+    background: #ffffff;
+    padding: 20px;
+    width: 80%;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+/* Image styling */
+
+
+/* Recipe info styling */
+.recipe-info {
+    padding: 15px; /* Padding inside the card */
+}
+
+.recipe-info h3 {
+    font-size: 1.8rem; /* Title font size */
+    color: #2e86de; /* Title color */
+    margin: 0; /* Remove default margin */
+}
+
+.recipe-meta {
+    margin-top: 10px; /* Space above meta info */
+    font-size: 0.9rem; /* Smaller font size */
+    color: #636e72; /* Meta text color */
+}
+
+/* Recipe meta details */
+.recipe-meta p {
+    margin: 5px 0; /* Margin above and below each meta item */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .recipe-container {
+        padding: 0; /* Remove padding on smaller screens */
+    }
+
+    .recipe-card {
+        width: 90%; /* Full width for smaller screens */
+    }
+}
