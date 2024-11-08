@@ -29,6 +29,7 @@ const RecipeList = () => {
 
             <div className="recipe-container">
                 {recipes.map(recipe => {
+                    
                     const imageUrl = `http://localhost:5000${recipe.image}`;
                     return (
                         <Link to={`/recipes/${recipe._id}`} key={recipe._id} className="recipe-card">

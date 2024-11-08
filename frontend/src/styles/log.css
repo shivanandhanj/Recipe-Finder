@@ -1,102 +1,105 @@
-/* styles/Login.css */
+/* Container for the login page */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: hsl(147, 81%, 29%);
+  /* background-image: url('C:\Users\p.ammu\Downloads\foodimg.jpg'); Path to your image */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent repeat of background image */
+}
 
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f5;
-    margin: 0;
-    padding: 0;
-  }
-  
-  h1 {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .login-container {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-  }
-  
-  label {
-    font-size: 1rem;
-    margin-right: 15px;
-    color: #555;
-  }
-  
-  input[type="email"],
-  input[type="password"],
-  input[type="text"] {
-    width: calc(100% - 30px);
-    padding: 12px 15px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  button {
-    width: 100%;
-    padding: 12px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  .radio-group {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .radio-group label {
-    font-size: 1rem;
-    color: #333;
-    margin-right: 15px;
-  }
-  
-  #recaptcha-container {
-    margin-top: 20px;
-  }
-  
-  @media (max-width: 768px) {
-    .login-container {
-      padding: 20px;
-    }
-    
-    h1 {
-      font-size: 2rem;
-    }
-  
-    input[type="email"],
-    input[type="password"],
-    input[type="text"] {
-      width: calc(100% - 20px);
-    }
-    
-    button {
-      font-size: 0.9rem;
-      padding: 10px;
-    }
-  }
-  
+/* Box that holds the login form */
+.login-box {
+  width: 350px;
+  padding: 20px;
+  border-radius: 8px;
+  background: linear-gradient(to bottom, #f5f5f5, #05679f); /* Gradient background from light gray to blue */
+  box-shadow: 0 4px 12px rgba(206, 203, 204, 0.1); /* Light gray shadow */
+  text-align: center;
+}
+
+/* Styling for the toggle (e.g., login/signup switcher) */
+.login-toggle {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+/* Styling for the input groups (email, password fields) */
+.login-form .input-group {
+  margin: 10px 0;
+  text-align: left;
+}
+
+/* Left-align labels */
+.login-form label {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Styling the input fields (email, password) */
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 5px solid gray;
+  border-radius: 4px; /* Defined shape for the input field */
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+  font-size: 1rem;
+}
+/* Custom styling for the phone number input field */
+.login-form .phone-input {
+  width: 100px;
+  padding: 12px 20px; /* More padding for a customized look */
+  margin-top: 5px;
+  border: 2px solid #05679f; /* Blue border */
+  border-radius: 50px; /* Rounded shape for phone input */
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease; /* Smooth transition for border color change */
+}
+
+/* Focus effect for phone number input */
+.login-form .phone-input:focus {
+  outline: none;
+  border-color: #335e9e; /* Darker blue border on focus */
+  box-shadow: 0 0 8px rgba(51, 94, 158, 0.5); /* Soft glow effect on focus */
+}
+
+/* Styling for the login button */
+.login-box button {
+  width: 90%;
+  padding: 12px 20px; /* Adjusted padding for a more prominent button */
+  background-color: #335e9e; /* Set button's background to blue */
+  color: white; /* Text color is white for contrast */
+  border: none;
+  border-radius: 30px; /* Rounded corners */
+  cursor: pointer;
+  font-size: 1.1rem; /* Font size adjustment for better readability */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow effect */
+}
+
+/* Button Hover Effect */
+.login-box button:hover {
+  background-color: #9ba5b1; /* Darker blue when hovered */
+  transform: scale(1.05); /* Slight scale effect when hovered */
+}
+
+/* Button Focus Effect */
+button:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(222, 204, 8, 0.737); /* Yellow outline when focused */
+}
+
+/* Container for the button */
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}

@@ -1,5 +1,5 @@
 const Recipe = require('../models/recipeModel'); // Assuming you have a Recipe model
-
+const Recipe2= require('../models/recipeModel2');
 // Controller to add a recipe
 const addRecipe = async (req, res) => {
     try {
@@ -32,7 +32,8 @@ const addRecipe = async (req, res) => {
 // Controller to get all recipes
 const getAllRecipes = async (req, res) => {
     try {
-        const recipes = await Recipe.find();
+        const recipes = await Recipe2.find();
+       
         res.status(200).json(recipes);
     } catch (error) {
         console.error('Error fetching recipes:', error);
@@ -50,6 +51,7 @@ const searchRecipes = async (req, res) => {
                 { cuisine: { $regex: query, $options: 'i' } } // Case-insensitive search by cuisine
             ]
         });
+        
         res.status(200).json(recipes);
     } catch (error) {
         console.error('Error searching recipes:', error);
@@ -58,7 +60,8 @@ const searchRecipes = async (req, res) => {
 };
 const getRecipeById = async (req, res) => {
     try {
-        const recipe = await Recipe.findById(req.params.id);
+       
+        const recipe = await Recipe2.findById(req.params.id);
         if (!recipe) return res.status(404).json({ message: 'Recipe not found' });
         res.json(recipe);
     } catch (error) {

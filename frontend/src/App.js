@@ -5,8 +5,10 @@ import RecipeList from './components/RecipeList';
 import AddRecipe from './components/AddRecipe';
 import RecipeDetails from './components/RecipeDetails';
 import SpoonacularRecipeList from './components/SpoonacularRecipeList'; // Import the new component
-import Login from './components/Login';
+import Login from './components/logt';
+import Contact from './components/contact'
 import Signup from './components/SignUp';
+import Search from './components/search'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import './App.css';  // Optional if you want general styles for your app
@@ -25,6 +27,9 @@ function App() {
           <Route path="/spoonacular" element={<SpoonacularRecipeList />} /> {/* Route for Spoonacular */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/contact" element={<Contact />}/>
+          <Route path="/search" element={<Search/>}/>
+
         </Routes>
       </div>
      

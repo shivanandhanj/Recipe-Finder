@@ -34,7 +34,7 @@ const Navbar = ({ setShowLogin }) => {
           Add Recipe
         </a>
         <a
-          href="#footer"
+          href="/contact"
           onClick={() => setMenu("contact-us")}
           className={menu === "contact-us" ? "active" : ""}
         >
