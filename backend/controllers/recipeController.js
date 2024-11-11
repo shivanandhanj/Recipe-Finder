@@ -45,11 +45,16 @@ const getAllRecipes = async (req, res) => {
 const searchRecipes = async (req, res) => {
     const query = req.query.q;
     try {
-        const recipes = await Recipe.find({
+        const recipes = await Recipe2.find({
             $or: [
                 { title: { $regex: query, $options: 'i' } }, // Case-insensitive search by title
-                { cuisine: { $regex: query, $options: 'i' } } // Case-insensitive search by cuisine
-            ]
+                { cuisine: { $regex: query, $options: 'i' } },
+                {dishType :{ $regex: query, $options: 'i'}} ,
+                {tasteProfile :{ $regex: query, $options: 'i'}},
+                {dietType :{ $regex: query, $options: 'i'}} ,
+                {mealType :{ $regex: query, $options: 'i'}} ,
+                {difficulty :{ $regex: query, $options: 'i'}} ,// Case-insensitive search by cuisine
+            ]  
         });
         
         res.status(200).json(recipes);
@@ -58,6 +63,35 @@ const searchRecipes = async (req, res) => {
         res.status(500).json({ error: 'Error searching recipes' });
     }
 };
+
+
+const filterRecipes = async (req, res) => {
+    const { cuisine, dishType, mealType, difficulty, dietType, maxDuration } = req.body;
+
+    // Initialize filter object
+    let filter = {};
+
+    // Modify each field to handle arrays where applicable
+    if (cuisine && cuisine.length > 0) filter.cuisine = { $in: cuisine.map(c => new RegExp(c, 'i')) };  // Case-insensitive regex for each item
+    if (dishType && dishType.length > 0) filter.dishType = { $in: dishType.map(d => new RegExp(d, 'i')) };
+    if (mealType && mealType.length > 0) filter.mealType = { $in: mealType };
+    if (difficulty) filter.difficulty = difficulty;
+    if (dietType && dietType.length > 0) filter.dietType = { $in: dietType };
+    if (maxDuration) filter.duration = { $lte: parseInt(maxDuration) };
+
+   
+    try {
+        const recipes = await Recipe2.find(filter);
+        res.status(200).json(recipes);
+    } catch (error) {
+        console.error('Error in filterRecipes:', error.stack);  // Log full error stack
+        res.status(500).json({ message: 'Server error', error: error.message });
+    }
+};
+
+
+
+
 const getRecipeById = async (req, res) => {
     try {
        
@@ -73,5 +107,6 @@ module.exports = {
     addRecipe,
     getAllRecipes,
     searchRecipes,
-    getRecipeById
+    getRecipeById,
+    filterRecipes
 };

@@ -3,13 +3,16 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const recipeRoutes = require('./routes/recipeRoutes');
+const userRoutes = require('./routes/userRoutes');
 const multer = require('multer');
 const path = require('path');
+const profileRoutes = require('./routes/profileRoutes');
 //const Recipe = require('./models/recipeModel2'); // Assuming you have a Recipe model
 
 dotenv.config();
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
@@ -37,7 +40,8 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
 app.use('/api/recipes', recipeRoutes);
-
+app.use('/api/users', userRoutes);
+app.use('/api/profiles', profileRoutes);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

@@ -22,7 +22,7 @@
     text-align: center;
     margin-bottom: 2rem;
     font-size: 26px;
-    color: #000000;
+    color: #f81212;
     position: relative; 
     font-weight: bold;
   }
@@ -38,7 +38,7 @@
   }
   
   .contact-success-message {
-    color: #0b3a80; 
+    color: #6d800b; 
     font-size: 30px;
     font-weight: bold; 
     margin-top: 20px;

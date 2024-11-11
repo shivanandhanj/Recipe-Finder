@@ -32,31 +32,32 @@ const SpoonacularRecipeList = () => {
 
     return (
         <div className="spoonacular-container">
-            <h1>Spoonacular Recipe Finder</h1>
-            <input
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search for recipes..."
-                className="search-input"
-            />
-            <button onClick={fetchRecipes} className="search-button">Search</button>
-
-            {loading && <p>Loading recipes...</p>}
-            {error && <p>{error}</p>}
-
-            <div className="recipe-grid">
-                {recipes.map((recipe) => (
-                    <div key={recipe.id} className="recipe-card">
-                        <img src={recipe.image} alt={recipe.title} className="recipe-image" />
-                        <h3>{recipe.title}</h3>
-                        <a href={`https://spoonacular.com/recipes/${recipe.title}-${recipe.id}`} target="_blank" rel="noopener noreferrer">
-                            View Recipe
-                        </a>
-                    </div>
-                ))}
-            </div>
+        <h1 className="spoonacular-title">Spoonacular Recipe Finder</h1>
+        <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search for recipes..."
+            className="spoonacular-search-input"
+        />
+        <button onClick={fetchRecipes} className="spoonacular-search-button">Search</button>
+    
+        {loading && <p className="loading-text">Loading recipes...</p>}
+        {error && <p className="error-text">{error}</p>}
+    
+        <div className="spoonacular-recipe-grid">
+            {recipes.map((recipe) => (
+                <div key={recipe.id} className="spoonacular-recipe-card">
+                    <img src={recipe.image} alt={recipe.title} className="spoonacular-recipe-image" />
+                    <h3 className="spoonacular-recipe-title">{recipe.title}</h3>
+                    <a href={`https://spoonacular.com/recipes/${recipe.title}-${recipe.id}`} target="_blank" rel="noopener noreferrer" className="view-recipe-link">
+                        View Recipe
+                    </a>
+                </div>
+            ))}
         </div>
+    </div>
+    
     );
 };
 

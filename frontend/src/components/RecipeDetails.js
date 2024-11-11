@@ -91,8 +91,8 @@ const RecipeDetails = () => {
                 {recipe.youtubeLink && (
         <div className="youtube-video">
             <iframe
-                width="560"
-                height="515"
+                width="700"
+                height="415"
                 src={`https://www.youtube.com/embed/${new URL(recipe.youtubeLink).searchParams.get('v')}`}
                 title="YouTube video player"
                 frameBorder="0"

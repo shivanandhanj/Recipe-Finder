@@ -1,5 +1,5 @@
 const express = require('express');
-const { addRecipe, getAllRecipes, searchRecipes, getRecipeById} = require('../controllers/recipeController');
+const { addRecipe, getAllRecipes, searchRecipes, getRecipeById,filterRecipes} = require('../controllers/recipeController');
 const multer = require('multer');
 const path = require('path');
 
@@ -30,5 +30,7 @@ router.post('/add', upload.single('image'), addRecipe); // Add recipe with image
 router.get('/', getAllRecipes);
 router.get('/search', searchRecipes);
 router.get('/:id', getRecipeById);
+router.post('/filter',filterRecipes);
 
+ 
 module.exports = router;
