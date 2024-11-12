@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/contact.css';
+import '../styles/Contact.css';
 import { motion } from 'framer-motion';
 
 const Contact = () => {
